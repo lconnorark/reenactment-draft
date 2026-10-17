@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3b3226" />
+  <title>Marching Orders — Prairie Grove</title>
+  <link rel="stylesheet" href="./styles1.css" />
+  <script src="./script1.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Marching Orders</h1>
+    <p id="headerContext" class="context-line">Loading…</p>
+  </header>
+
+  <main class="container">
+    <section class="card" id="ordersCard" aria-live="polite">
+      <p class="screen-label">Orders</p>
+      <h2 id="orderTitle">Order — Spot <span id="spotVal">1</span> of <span id="spotMax">5</span></h2>
+
+      <div id="orderBody" class="order-body"></div>
+
+      <section id="extrasBox" class="extras-box hidden" aria-label="Game station"></section>
+
+      <div class="actions">
+        <button id="prevBtn" class="secondary-btn touch-btn" type="button">← Previous</button>
+        <button id="nextBtn" class="primary-btn touch-btn" type="button">Next →</button>
+        <button id="backBtn" class="secondary-btn touch-btn" type="button">Back to Unit Selection</button>
+      </div>
+
+      <div id="toastHost" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <footer>Prairie Grove Battlefield Interactive — Marching Orders</footer>
+</body>
+</html>
