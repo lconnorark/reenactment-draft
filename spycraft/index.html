@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3b3226" />
+  <title>Spycraft: Prairie Grove — Civil War Cipher Game</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Spycraft: Prairie Grove</h1>
+    <p id="ctxLine" class="ctx">Loading…</p>
+  </header>
+
+  <main class="container">
+    <div id="returnBar" class="return-bar hidden">
+      <button id="returnBtn" class="secondary-btn" type="button">Return to Marching Orders</button>
+    </div>
+
+    <nav id="roleTabs" class="role-tabs" aria-label="Role switch">
+      <button id="tabUnion" class="tab-btn" type="button" data-mode="union">Union Code‑Breaker</button>
+      <button id="tabConfed" class="tab-btn" type="button" data-mode="confed">Confederate Signaler</button>
+    </nav>
+
+    <section id="unionPanel" class="card hidden" aria-live="polite">
+      <p class="screen-label">Union Code‑Breaker</p>
+      <h2>Intercept &amp; Decrypt</h2>
+
+      <div class="intro">
+        <p>An intercepted dispatch is shown below (letters only). Identify the keyword and decrypt the message.</p>
+        <p class="hint">Tip: try documented Confederate keywords first, or use the analysis tools below.</p>
+      </div>
+
+      <div class="cipher-block">
+        <label for="cipherText">Ciphertext</label>
+        <textarea id="cipherText" rows="4" readonly></textarea>
+        <div class="btn-row">
+          <button id="newInterceptBtn" class="secondary-btn" type="button">New Intercept</button>
+          <button id="clearInterceptBtn" class="secondary-btn" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool">
+          <label for="keyGuess">Keyword guess</label>
+          <input id="keyGuess" type="text" placeholder="e.g., complete victory" />
+          <div class="btn-row">
+            <button id="tryKeyBtn" class="primary-btn" type="button">Try Key → Decrypt</button>
+            <button id="hintBtn" class="secondary-btn" type="button">Show Historic Keywords</button>
+          </div>
+        </div>
+
+        <div class="tool">
+          <fieldset class="field">
+            <legend>Analysis</legend>
+            <button id="iocBtn" class="secondary-btn" type="button">Estimate Key Length (IOC)</button>
+            <button id="repeatsBtn" class="secondary-btn" type="button">Repeated Trigrams (Kasiski‑style)</button>
+          </fieldset>
+          <div id="analysisOut" class="analysis-out"></div>
+        </div>
+      </div>
+
+      <div class="plain-block">
+        <label for="plainOut">Decrypted plaintext</label>
+        <textarea id="plainOut" rows="4" readonly></textarea>
+      </div>
+
+      <div class="progress-grid">
+        <div><strong>Historic keyword?</strong> <span id="historicBadge">—</span></div>
+        <div><strong>Decryption status:</strong> <span id="statusBadge">—</span></div>
+      </div>
+    </section>
+
+    <section id="confedPanel" class="card hidden" aria-live="polite">
+      <p class="screen-label">Confederate Signaler</p>
+      <h2>Compose &amp; Encipher</h2>
+
+      <div class="intro">
+        <p>Compose a dispatch and encipher it using a documented wartime keyword. Share the ciphertext or practice sending via wig‑wag separately.</p>
+      </div>
+
+      <div class="compose-grid">
+        <div class="field">
+          <label for="msgInput">Plaintext (letters &amp; spaces)</label>
+          <textarea id="msgInput" rows="4" placeholder="e.g., hold the ridge until dusk..."></textarea>
+        </div>
+        <div class="field">
+          <label for="keySelect">Keyword</label>
+          <select id="keySelect"></select>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="encipherBtn" class="primary-btn" type="button">Encipher (Vigenère)</button>
+        <button id="clearConfedBtn" class="secondary-btn" type="button">Clear</button>
+      </div>
+
+      <div class="cipher-block">
+        <label for="cipherOut">Ciphertext</label>
+        <textarea id="cipherOut" rows="4" readonly></textarea>
+      </div>
+    </section>
+
+    <div id="toastHost" aria-live="polite" aria-atomic="true"></div>
+  </main>
+
+  <footer>Prairie Grove Battlefield Interactive — Spycraft</footer>
+</body>
+</html>
