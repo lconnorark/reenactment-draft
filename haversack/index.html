@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3b3226" />
+  <title>Haversack Challenge — Prairie Grove</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Battle of Prairie Grove</h1>
+    <p>Haversack Challenge — Pack Your 60-lb Load</p>
+  </header>
+
+  <main class="container">
+    <section class="card" id="haversackCard">
+      <p class="screen-label">Interactive Puzzle</p>
+      <h2 id="haversackHeading">Pick 10 Items That Total Exactly 60 lb</h2>
+
+      <p class="introduction">
+        Soldiers carried clothing, shelter, tools, food, water, ammunition—and more—on the march.
+        Choose <strong>exactly ten</strong> items from the list. Your goal is a pack that weighs
+        <strong>exactly 60 pounds</strong>. Some weights are rounded to whole pounds for gameplay;
+        a few small items are marked “approx.”
+      </p>
+
+      <div class="historical-note">
+        <p>
+          Item descriptions follow National Park Service lesson materials on Civil War soldier
+          accouterments. Major gear weights are adapted from historical load analyses; small-item
+          weights are approximations for gameplay. See Sources &amp; Notes below.
+        </p>
+      </div>
+
+      <div class="status-bar" aria-live="polite">
+        <div><strong>Selected:</strong> <span id="selectedCount">0</span> / 10 items</div>
+        <div><strong>Total weight:</strong> <span id="totalWeight">0</span> lb</div>
+        <div class="target"><strong>Target:</strong> 60 lb</div>
+      </div>
+
+      <div id="itemGrid" class="item-grid" aria-labelledby="haversackHeading"></div>
+
+      <div class="puzzle-actions">
+        <button class="primary-btn touch-btn" id="checkButton" type="button">Check My Load</button>
+        <button class="secondary-btn touch-btn" id="resetButton" type="button">Reset</button>
+      </div>
+
+      <div id="resultMessage" class="result-message" role="status" aria-live="polite"></div>
+
+      <details class="sources">
+        <summary>Sources &amp; Notes</summary>
+        <ul>
+          <li>
+            <a href="https://www.nps.gov/gett/learn/education/a-nation-at-war-table-2-accouterments-of-a-civil-war-soldier-teacher-s-instructions.htm" target="_blank" rel="noopener noreferrer">
+              NPS: “Accouterments of a Civil War Soldier” (Gettysburg)
+            </a> — item types such as knapsack, haversack, tinware, gum blanket, shelter half, and sewing kit.
+          </li>
+          <li>
+            <a href="https://www.civilwarmonitor.com/article/the-weight-they-carried/" target="_blank" rel="noopener noreferrer">
+              Civil War Monitor: “The Weight They Carried”
+            </a> — typical weights for major gear and clothing.
+          </li>
+          <li>
+            <a href="https://www.nps.gov/apco/learn/education/common-soldier-activity.htm" target="_blank" rel="noopener noreferrer">
+              NPS (Appomattox): Common Soldier Activity
+            </a> — rifle-musket gear and ammunition carried.
+          </li>
+          <li>
+            <a href="https://en.wikipedia.org/wiki/Springfield_Model_1861" target="_blank" rel="noopener noreferrer">
+              Springfield Model 1861
+            </a> — firearm weight (grouped with accouterments in this game).
+          </li>
+          <li>
+            <a href="https://ss-sutler.com/tents.htm" target="_blank" rel="noopener noreferrer">
+              S &amp; S Sutler: Shelter Tent Halves
+            </a> — shelter-half equipment; game weights are approximated.
+          </li>
+          <li>
+            <a href="https://en.wikipedia.org/wiki/Foods_of_the_American_Civil_War" target="_blank" rel="noopener noreferrer">
+              Foods of the American Civil War
+            </a> — ration background for hardtack, coffee, and sugar.
+          </li>
+        </ul>
+        <p class="note">Items marked “approx.” use rounded values to keep gameplay simple while remaining historically plausible.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>Prairie Grove Battlefield Interactive Experience</footer>
+</body>
+</html>
