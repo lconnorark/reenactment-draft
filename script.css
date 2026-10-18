@@ -1,0 +1,160 @@
+:root {
+  --union-color: #245a91;
+  --union-hover: #1a4775;
+  --union-pressed: #123654;
+
+  --confederate-color: #3b706e;
+  --confederate-hover: #315d5b;
+  --confederate-pressed: #541e1e;
+
+  --page-background: #ece7d8;
+  --header-background: #3b3226;
+  --primary-brown: #5f4b32;
+  --primary-brown-hover: #7b6340;
+  --accent-green: #7d8f4f;
+
+  --light-panel: #f7f4ea;
+  --border-color: #d8d0bf;
+  --text-color: #222;
+}
+
+/* Reset & base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  min-height: 100vh;
+  background: var(--page-background);
+  color: var(--text-color);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+button { font: inherit; }
+
+/* Header */
+.site-header { padding: 18px 20px; background: var(--header-background); color: #fff; }
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); line-height: 1.2; }
+.brand p { color: #eee7d8; }
+
+/* Layout */
+.container { width: 100%; max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+.card { padding: 30px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.14); }
+.card h2 { margin-bottom: 12px; color: var(--header-background); }
+.introduction, .unit-instructions, .selection-message { margin-bottom: 22px; }
+.screen-label { margin-bottom: 8px; color: #65713f; font-size: 0.82rem; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Side options */
+.side-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 26px; }
+.side-btn {
+  display: flex; align-items: center; width: 100%;
+  min-height: 104px; padding: 20px; border: 3px solid transparent; border-radius: 12px;
+  color: #fff; text-align: left; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation; user-select: none;
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 100ms ease;
+}
+.union-btn { background: var(--union-color); border-color: var(--union-color); }
+.union-btn:hover { background: var(--union-hover); border-color: var(--union-hover); }
+.confederate-btn { background: var(--confederate-color); border-color: var(--confederate-color); }
+.confederate-btn:hover { background: var(--confederate-hover); border-color: var(--confederate-hover); }
+
+.button-symbol {
+  display: grid; flex: 0 0 52px; width: 52px; height: 52px; margin-right: 15px;
+  border: 2px solid rgba(255,255,255,0.7); border-radius: 50%;
+  background: rgba(255,255,255,0.12); font-family: Arial, sans-serif; font-size: 1.4rem; font-weight: bold; place-items: center;
+}
+.button-text { display: flex; flex-direction: column; }
+.button-text strong { font-size: 1.18rem; line-height: 1.25; }
+.button-text small { margin-top: 4px; color: rgba(255,255,255,0.88); font-size: 0.83rem; line-height: 1.35; }
+
+.touch-btn.is-pressed, .touch-btn:active { transform: scale(0.97); }
+.union-btn.is-pressed, .union-btn:active {
+  background: var(--union-pressed); border-color: var(--union-pressed);
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.28), 0 0 0 4px rgba(36,90,145,0.2);
+}
+.confederate-btn.is-pressed, .confederate-btn:active {
+  background: var(--confederate-pressed); border-color: var(--confederate-pressed);
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.28), 0 0 0 4px rgba(138,53,53,0.2);
+}
+
+/* Badges & lists */
+.side-label { display: inline-block; margin-bottom: 15px; padding: 6px 12px; border-radius: 20px; background: #e8eadc; color: #4c5a2b; font-size: 0.9rem; font-weight: bold; }
+.side-label.union-label { background: #e1ebf5; color: var(--union-hover); }
+.side-label.confederate-label { background: #f2e1e1; color: var(--confederate-hover); }
+
+.unit-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 22px 0 26px; }
+.unit-btn, .primary-btn, .secondary-btn {
+  display: block; width: 100%; min-height: 56px; padding: 14px 18px; border-radius: 8px; font-size: 1rem; cursor: pointer;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation; user-select: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 100ms ease;
+}
+.unit-btn { border: 2px solid #cfc6b3; background: var(--light-panel); color: var(--header-background); font-weight: bold; text-align: left; }
+.unit-btn:hover { border-color: var(--accent-green); background: #eef1e4; color: #3e4929; }
+.unit-btn.is-pressed, .unit-btn:active { border-color: #65753c; background: #dfe7c8; box-shadow: inset 0 2px 5px rgba(0,0,0,0.18); }
+
+.primary-btn { margin: 12px 0; border: 2px solid var(--primary-brown); background: var(--primary-brown); color: #fff; }
+.primary-btn:hover { border-color: var(--primary-brown-hover); background: var(--primary-brown-hover); }
+.primary-btn.is-pressed, .primary-btn:active { background: #453622; box-shadow: inset 0 2px 6px rgba(0,0,0,0.28); }
+
+.secondary-btn { margin: 12px 0; border: 2px solid var(--primary-brown); background: transparent; color: var(--primary-brown); }
+.secondary-btn:hover { background: #f1ece2; }
+.secondary-btn.is-pressed, .secondary-btn:active { background: #ded4c2; box-shadow: inset 0 2px 5px rgba(0,0,0,0.15); }
+
+.text-btn { display: block; min-height: 48px; margin: 16px auto 0; padding: 10px 14px; border: 0; background: transparent; color: #666; cursor: pointer; text-decoration: underline; }
+.text-btn:hover { color: var(--header-background); }
+.text-btn.is-pressed, .text-btn:active { color: #000; transform: scale(0.97); }
+
+.side-btn:focus-visible,
+.unit-btn:focus-visible,
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.text-btn:focus-visible {
+  outline: 4px solid #d7a928; outline-offset: 4px;
+}
+
+/* Selection UI */
+.selection-marker { display: grid; width: 56px; height: 56px; margin-bottom: 18px; border-radius: 50%; background: var(--accent-green); color: #fff; font-family: Arial, sans-serif; font-size: 2rem; font-weight: bold; place-items: center; }
+.selected-side { color: var(--primary-brown); font-size: 1rem; font-weight: bold; text-transform: uppercase; }
+.selected-unit { margin: 4px 0 18px; color: var(--header-background); font-size: 1.65rem; font-weight: bold; line-height: 1.3; }
+.placeholder-panel { margin: 22px 0; padding: 24px; border: 1px solid var(--border-color); border-radius: 10px; background: var(--light-panel); }
+.placeholder-panel h3 { margin-bottom: 8px; color: var(--primary-brown); }
+.hidden { display: none; }
+footer { padding: 20px; color: #666; text-align: center; }
+
+/* Unit image block */
+.unit-image { margin: 16px 0 20px; border: 1px solid var(--border-color); border-radius: 10px; background: var(--light-panel); overflow: hidden; }
+.unit-image img { display: block; width: 100%; height: auto; }
+.image-caption { padding: 10px 12px; color: var(--primary-brown); background: rgba(0,0,0,0.04); font-size: 0.92rem; line-height: 1.4; }
+
+/* Unit summary */
+.unit-summary {
+  margin: 12px 0 18px; padding: 14px;
+  border: 1px solid var(--border-color); border-radius: 10px; background: var(--light-panel);
+}
+.summary-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.type-badge {
+  display: inline-block; padding: 4px 10px; border-radius: 14px;
+  border: 1px solid var(--border-color); background: #e8eadc; color: #4c5a2b; font-size: 0.85rem; font-weight: bold;
+}
+
+/* Marching Orders buttons (quick actions) */
+.quick-actions { margin: 18px 0; }
+.quick-actions h3 { color: var(--primary-brown); margin-bottom: 8px; }
+.qa-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Responsive */
+@media (max-width: 650px) {
+  .site-header { padding: 14px 12px; }
+  .brand h1 { font-size: 1.6rem; }
+  .side-options, .unit-list { grid-template-columns: 1fr; }
+  .side-btn { min-height: 92px; }
+  .unit-btn { min-height: 60px; text-align: center; }
+}
+@media (hover: none) {
+  .union-btn:hover { background: var(--union-color); border-color: var(--union-color); }
+  .confederate-btn:hover { background: var(--confederate-color); border-color: var(--confederate-color); }
+  .unit-btn:hover { border-color: #cfc6b3; background: var(--light-panel); color: var(--header-background); }
+  .secondary-btn:hover { background: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .side-btn, .unit-btn, .primary-btn, .secondary-btn, .text-btn { transition: none; }
+}
